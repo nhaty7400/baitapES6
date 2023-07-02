@@ -13,6 +13,143 @@
 </head>
 
 <body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6 mx-auto">
+                <h3 class="display-4 text-center">Quản lý học viện nghiên cứu & giảng dạy</h3>
+                <form id="formQLSV">
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label for="">Mã người dùng : </label>
+                            <input type="text" class="form-control" id="txtMa">
+                            <span id="spanMa" class="text-danger"></span>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="">Tên người dùng : </label>
+                            <input type="text" class="form-control" id="txtTen">
+                            <span id="spanTen" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label for="">Email : </label>
+                            <input type="text" class="form-control" id="txtEmail">
+                            <span id="spanEmail" class="text-danger"></span>
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="">Địa chỉ: </label>
+                            <input type="text" class="form-control" id="txtDiaChi">
+                            <span id="spanDiaChi" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <select name="" id="loaiUser" class="form-control">
+                                <option value="none">Chọn loại người dùng</option>
+                                <option value="student">Student</option>
+                                <option value="employee">Employee</option>
+                                <option value="customer">Customer</option>
+                            </select>
+                            <span id="spanLoaiUser" class="text-danger"></span>
+                        </div>
+                        <div class="col-4 form-group">
+                            <button class="btn btn-dark" id="confirmLoaiUser">Xác nhận</button>
+                        </div>
+                    </div>
+                    <div class="row" style="display: none;" id="student">
+                        <div class="col-4 form-group">
+                            <label for="">Điểm toán : </label>
+                            <input type="text" class="form-control" id="txtDiemToan">
+                            <span id="spanToan" class="text-danger"></span>
+                        </div>
+                        <div class="col-4 form-group">
+                            <label for="">Điểm lý : </label>
+                            <input type="text" class="form-control" id="txtDiemLy">
+                            <span id="spanLy" class="text-danger"></span>
+                        </div>
+                        <div class="col-4 form-group">
+                            <label for="">Điểm hóa : </label>
+                            <input type="text" class="form-control" id="txtDiemHoa">
+                            <span id="spanHoa" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row" style="display: none;" id="employee">
+                        <div class="col-4 form-group">
+                            <label for="">Số ngày làm việc : </label>
+                            <input type="text" class="form-control" id="txtSoNgay">
+                            <span id="spanSoNgay" class="text-danger"></span>
+                        </div>
+                        <div class="col-4 form-group">
+                            <label for="">Lương theo ngày : </label>
+                            <input type="text" class="form-control" id="txtLuongNgay">
+                            <span id="spanLuongNgay" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row" style="display: none;" id="customer">
+                        <div class="col-4 form-group">
+                            <label for="">Tên công ty : </label>
+                            <input type="text" class="form-control" id="txtCongTy">
+                            <span id="spanCongTy" class="text-danger"></span>
+                        </div>
+                        <div class="col-4 form-group">
+                            <label for="">Trị giá hóa đơn : </label>
+                            <input type="text" class="form-control" id="txtTGHD">
+                            <span id="spanTGHD" class="text-danger"></span>
+                        </div>
+                        <div class="col-4 form-group">
+                            <label for="">Đánh giá :</label>
+                            <select name="" id="danhGia" class="form-control">
+                                <option>Tốt</option>
+                                <option>Trung bình</option>
+                                <option>Tệ</option>
+                            </select>
+                            <span id="spanDanhGia" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group text-center">
+                        <button type="button" id="themUser" class="btn btn-success">Thêm người dùng</button>
+                        <button type="button" id="capNhatUser" class="btn btn-info">Cập Nhật</button>
+                        <button type="button" id="sapXep" class="btn btn-dark">Sắp xếp danh sách người dùng</button>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-6 form-group">
+                            <select name="" id="loaiUserFilter" class="form-control">
+                                <option value="none">Chọn loại người dùng muốn lọc</option>
+                                <option value="S">Student</option>
+                                <option value="E">Employee</option>
+                                <option value="C">Customer</option>
+                            </select>
+                            <span id="spanLoaiUserFilter" class="text-danger"></span>
+                    </div>
+                    <div class="col-6 form-group">
+                        <button id="btnFilter" class="btn btn-primary">Lọc</button>
+                        <button type="button" id="DSGoc"  class="btn btn-warning">Trở về danh sách gốc</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 mx-auto">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Mã người dùng</th>
+                            <th>Tên người dùng</th>
+                            <th>Email</th>
+                            <th>Loại người dùng</th>
+                            <!-- <th>Điểm trung bình</th>
+                            <th>Lương</th> -->
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyUser">
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -25,9 +162,7 @@
         crossorigin="anonymous"></script>
 
     <!-- MY JS -->
-    <script src="./model/ListPerson.js"></script>
-    <script src="./model/Person.js"></script>
-    <script src="./js/main.js"></script>
+    <script type="module" src="./js/main.js"></script>
 </body>
 
 </html>
