@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-6 mx-auto">
                 <h3 class="display-4 text-center">Quản lý học viện nghiên cứu & giảng dạy</h3>
-                <form id="formQLSV">
+                <form id="formQLND">
                     <div class="row">
                         <div class="col-6 form-group">
                             <label for="">Mã người dùng : </label>
@@ -52,8 +52,8 @@
                             </select>
                             <span id="spanLoaiUser" class="text-danger"></span>
                         </div>
-                        <div class="col-4 form-group">
-                            <button class="btn btn-dark" id="confirmLoaiUser">Xác nhận</button>
+                        <div class="col-6 form-group">
+                            <button class="btn btn-dark" id="confirmLoaiUser">Xác nhận loại người dùng</button>
                         </div>
                     </div>
                     <div class="row" style="display: none;" id="student">
@@ -99,9 +99,9 @@
                         <div class="col-4 form-group">
                             <label for="">Đánh giá :</label>
                             <select name="" id="danhGia" class="form-control">
-                                <option>Tốt</option>
-                                <option>Trung bình</option>
-                                <option>Tệ</option>
+                                <option value="tốt">Tốt</option>
+                                <option value="trung bình">Trung bình</option>
+                                <option value="tệ">Tệ</option>
                             </select>
                             <span id="spanDanhGia" class="text-danger"></span>
                         </div>
@@ -117,9 +117,9 @@
                     <div class="col-6 form-group">
                             <select name="" id="loaiUserFilter" class="form-control">
                                 <option value="none">Chọn loại người dùng muốn lọc</option>
-                                <option value="S">Student</option>
-                                <option value="E">Employee</option>
-                                <option value="C">Customer</option>
+                                <option value="student">Student</option>
+                                <option value="employee">Employee</option>
+                                <option value="customer">Customer</option>
                             </select>
                             <span id="spanLoaiUserFilter" class="text-danger"></span>
                     </div>
@@ -129,7 +129,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-10 mx-auto">
+            <div class="col-10 mx-auto" id="tableAll">
                 <table class="table">
                     <thead>
                         <tr>
@@ -137,8 +137,9 @@
                             <th>Tên người dùng</th>
                             <th>Email</th>
                             <th>Loại người dùng</th>
-                            <!-- <th>Điểm trung bình</th>
-                            <th>Lương</th> -->
+                            <th id="thDiemTB" style="display: none;">Điểm trung bình</th>
+                            <th id="thLuong" style="display: none;">Tổng lương</th>
+                            <th id="thTenCT" style="display: none;">Tên công ty</th>
                         </tr>
                     </thead>
                     <tbody id="tbodyUser">

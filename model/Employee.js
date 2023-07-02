@@ -1,5 +1,5 @@
-import { Person } from "./Person";
-class Employee extends Person {
+import { Person } from "./Person.js";
+export class Employee extends Person {
     constructor(ma, ten, email, diachi, loai, ngay, luong) {
       super(ma, ten, email, diachi, loai);
       this.soNgay = ngay;
@@ -11,4 +11,3 @@ class Employee extends Person {
     }
   }
 
-  export {Employee}
