@@ -88,7 +88,7 @@ const themUser = () => {
     //validation
     let isValid = true;
 
-    isValid &= validation.checkEmpty(ma, "spanMa", "Mã người dùng không được để trống") && validation.checkIDIsExist(ma, "spanMa", "Mã người dùng đã tồn tại", dsnd.mangUser) && validation.checkID(ma, "spanMa", "Mã người dùng bao gồm 4 tới 10 ký tự chữ và số");
+    isValid &= validation.checkEmpty(ma, "spanMa", "Mã người dùng không được để trống") && validation.checkIDIsExist(ma, "spanMa", "Mã người dùng đã tồn tại", dsnd.mangUser) && validation.checkID(ma, "spanMa", "Mã người dùng bao gồm 4 tới 10 ký tự chữ hoặc số");
     isValid &= validation.checkEmpty(ten, "spanTen", "Tên người dùng không được để trống") && validation.checkName(ten, "spanTen", "Tên người dùng chỉ chứa kí tự chữ");
     isValid &= validation.checkEmail(email, "spanEmail", "Email không hợp lệ");
     isValid &= validation.checkDiaChi(diachi, "spanDiaChi", "Địa chỉ không hợp lệ");
